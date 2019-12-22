@@ -10,22 +10,20 @@
 
 </div>
 
+<% if flash[:notice] %>
 
+<div class="alert alert-primary"><%= flash[:notice] %></div>
 
-<div class="card">
+<% end %>
 
-  <div class="card-header">
+<%= render @post %>
 
-    <h4><%= @post.title%></h4>
-
-  </div>
-
-  <div class="card-body">
-
-    <p class="card-text"><%= simple_format(@post.body)%></p>
-
-    <p class="text-right font-weight-bold mr-10"><%= @post.name%></p>
-
-  </div>
-
+<div class="p-comment_list">
+  
+  <div class="p-comment_listTitle">解決案</div>
+  
+  <%= render @post.comments%>
+  
 </div>
+
+<%= render partial: "comments/form", locals: { comment: @comment } %>
