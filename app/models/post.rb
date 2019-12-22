@@ -11,7 +11,7 @@
 #
 
 class Post < ApplicationRecord
-  has_many :comments
+  has_many :comments, dependent: :delete_all
   has_many :post_tag_relations
   has_many :tags, through: :post_tag_relations
   
