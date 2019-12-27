@@ -3,9 +3,9 @@
   <div class="ml-auto boards__linkBox">
 
     <%= link_to "一覧",   posts_path, class: "btn btn-outline-dark"%>
-
+<% if @post.user_id == session[:user_id] %> 
     <%= link_to "編集",  edit_post_path(@post)	 , class: "btn btn-outline-dark"%>
-
+<% end %>
   </div>
 
 </div>

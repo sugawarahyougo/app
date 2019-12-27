@@ -71,8 +71,9 @@
         <td><%= f.updated_at.to_s(:datetime_jp) %></td>
 
         <td><%= link_to '詳細', post_path(f.id), class: 'btn btn-outline-dark' %></td>
-
+      <% if f.user_id == session[:user_id] %> 
 　      <td><%= link_to '削除', post_path(f.id), class: 'btn btn-outline-dark' , method: :delete %></td>
+　    <% end %>
       </tr>
 
     <% end %>

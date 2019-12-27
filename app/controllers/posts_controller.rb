@@ -3,6 +3,7 @@ class PostsController < ApplicationController
   
   
   def index
+    # @posts = Post.where(user_id: session[:user_id]).page(params[:page])
     @posts = Post.page(params[:page])
   end
   
@@ -45,7 +46,7 @@ class PostsController < ApplicationController
   private
   
   def post_params
-     params.require(:post).permit(:name,:title,:body, tag_ids: [])
+     params.require(:post).permit(:name, :title, :body, :user_id, tag_ids: [])
   end 
   
   def set_target_post
