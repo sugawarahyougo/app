@@ -4,19 +4,6 @@
 
   <div class="ml-auto boards__linkBox">
     
-    <%= form_tag posts_path, method: :get, class: "boards__searchForm" do %>
-    
-      <%= select_tag :tag_id, options_from_collection_for_select(Tag.all, :id, :name, params[:tag_id]),
-    
-         { prompt: "タグで絞り込み",
-    
-          class: "form-control boards__select",
-     
-          onchange: "submit(this.form);"
-     
-         }%>
-    
-     <% end %>
 
     <%= link_to "新規質問", new_post_path, class: "btn btn-outline-dark" %>
 
