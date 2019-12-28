@@ -1,10 +1,11 @@
+
 <div class="p-comment__item">
 
   <p><%= simple_format(comment.comment) %></p>
 
   <div class="p-comment__bottomLine">
-
-    <span><%= comment.name %></span>
+<% user = User.find(comment.user_id) %>
+    <span><%= user.name %></span>
 
     <span><%= comment.created_at.to_s(:datetime_jp) %></span>
     <% if comment.user_id == session[:user_id] %>
