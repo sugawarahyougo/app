@@ -56,23 +56,23 @@
 
   <tbody>
 
-    <% @posts.each do |f| %>
+    <% @posts.each do |post| %>
 
       <tr>
 
-        <td><%= f.id %></td>
+        <td><%= post.id %></td>
 
-        <td><%= f.title %></td>
+        <td><%= post.title %></td>
+      <% user = User.find(post.user_id) %>
+        <td><%= user.name %></td>
+      
+        <td><%= post.created_at.to_s(:datetime_jp) %></td>
 
-        <td><%= f.name %></td>
+        <td><%= post.updated_at.to_s(:datetime_jp) %></td>
 
-        <td><%= f.created_at.to_s(:datetime_jp) %></td>
-
-        <td><%= f.updated_at.to_s(:datetime_jp) %></td>
-
-        <td><%= link_to '詳細', post_path(f.id), class: 'btn btn-outline-dark' %></td>
-      <% if f.user_id == session[:user_id] %> 
-　      <td><%= link_to '削除', post_path(f.id), class: 'btn btn-outline-dark' , method: :delete %></td>
+        <td><%= link_to '詳細', post_path(post.id), class: 'btn btn-outline-dark' %></td>
+      <% if post.user_id == session[:user_id] %> 
+　      <td><%= link_to '削除', post_path(post.id), class: 'btn btn-outline-dark' , method: :delete %></td>
 　    <% end %>
       </tr>
 
